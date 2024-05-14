@@ -14,6 +14,14 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   Widget? activeScreen;
 
+  /*
+    O professor também dá uma solução utilizando operador ternário, que torna o uso de initState desnecessário.
+    Pessoalmente eu gosto de usar ternário, porém não farei uso nesse caso pois é um pouco verboso e prejudica o entendimento.
+    A solução usando ternário está na aula 62.
+    Ele também introduz uma solução construída em cima do que ele fez com ternário, mas usando if/else.
+    Esta solução está na aula 63.
+  */
+
   @override
   void initState() {
     super.initState();
