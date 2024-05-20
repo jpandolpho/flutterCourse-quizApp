@@ -12,11 +12,19 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  int currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
     return SizedBox(
-      width: double.infinity, //alternativa para o center
+      width: double.infinity, //alternativa para o widget center
       child: Container(
         margin: const EdgeInsets.all(40),
         child: Column(
@@ -34,7 +42,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               //... é um operador que transforma uma lista/iterável em valores separados por vírgula.
               //então neste caso, ele pega os AnswerButton que estão numa lista, e transpõe eles pra,
               //ao invés de ser uma lista dentro de children, serem objetos dentro de children
-              return AnswerButton(answerText: answer, onTap: () {});
+              return AnswerButton(answerText: answer, onTap: answerQuestion);
             }),
           ],
         ),
